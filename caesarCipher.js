@@ -24,11 +24,28 @@ if (shiftBy === NaN) {
 	console.error("Your secong argument is not a Number:2, please try again!");
 	return;
 }
-// console.log(inputString);
-// get value of each used char
-// shift it by the given value in helper function?
-
 // Helper function to shift char by int based on ASCII
-const shiftAscii = (charIn, shiftBy) => {
-	return String.fromCharCode(charIn.charCodeAt(0) + shiftBy);
+// takes char and number to shift as argument
+const shiftAscii = (char, shiftBy) => {
+	// function wich returns char from integer
+	return String.fromCharCode(
+		// converts char to Integer and adds input to it
+		// -> returns value wich gets then converted again by outer function
+		char.charCodeAt(0) + shiftBy
+	);
 };
+let retVal = "";
+// splits string in single words and filter out spaces
+const listOfWords = inputString.split(" ").filter((word) => word !== "");
+// loop over array of words
+listOfWords.forEach((element) => {
+	console.log(element); // Log element for debugging
+	// inner loop to get to each char in each word
+	for (const char in element) {
+		// console.log(element[char]); // Log element for debugging
+		retVal = retVal + shiftAscii(element[char], shiftBy);
+	}
+	retVal = retVal + " ";
+});
+
+console.log(retVal);
