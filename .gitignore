@@ -1,1 +1,4 @@
-./test.txt
+# comment
+# use backslash "\" as escape character for example to use # as search pattern
+/test.txt
+/test2.txt
